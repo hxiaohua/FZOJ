@@ -141,8 +141,7 @@ echo "<input type=submit class='form-control' value='$MSG_SEARCH'></form>";
     </tbody>
   </table>
 </div>
-<div id=center> <?php echo "[<a href=status.php?".$str2.">Top< / a > ] & nbsp; & nbsp;
-";
+<div id=center> <?php echo "[<a href=status.php?".$str2.">Top</a>]&nbsp;&nbsp;";
 if (isset($_GET['prevtop']))
 echo " [ < a href = status . php ? ".$str2." & top = ".intval($_GET['prevtop'])." > Previous Page < /a>]&nbsp;&nbsp;";
   else
