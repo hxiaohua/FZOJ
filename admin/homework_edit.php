@@ -72,8 +72,9 @@ if (isset($_POST['syear']))
 		mysqli_query($mysqli,$sql_1) or die(mysqli_error($mysqli));
 	}
 	//添加用户真实名字，不用删除，直接插入即可，插入失败的就选用更新操作
-		$stuname = explode("\n", trim($_POST['uname']));
-	if (count($pieces)>0 && strlen($pieces[0])>0){
+	$stuname = explode("\n", trim($_POST['uname']));
+	//应以用户真实姓名为准，当没有输入用户姓名时，不做更新操作。
+	if (count($stuname)>0 && strlen($stuname[0])>0){
 		for ($i=0;$i<count($pieces);$i++)
 		{
 			$stuname[$i]=mysqli_real_escape_string($mysqli,htmlentities ($stuname[$i],ENT_QUOTES,"UTF-8"));

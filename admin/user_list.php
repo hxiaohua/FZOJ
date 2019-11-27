@@ -6,8 +6,7 @@ if (!(isset($_SESSION['administrator']))){
 }
 //检测用户登录，全局文件
 require_once("../include/db_info.inc.php");
-echo "<title>权限管理</title>"; 
-echo "<center><h2>User List</h2></center>";
+echo "<center><h2>用户列表</h2></center>";
 if(isset($_GET['page']))
 	$page=$_GET['page'];
 //设置分页等
@@ -81,11 +80,12 @@ for ($i=1;$i<=$cnt;$i++){
 <table id='problemset' width='90%'class='table table-striped'>
 <thead>
 <tr class='toprow' align="left">
-<th width='20'  class='hidden-xs' >编号</th>
-<th width='20'>用户id</th>
-<th class='hidden-xs' width='20'>呢称</th>
-<th style="cursor:hand" width='20' >用户权限</th>
-<th style="cursor:hand" width='20'>删除</th>
+<th width='10%'  class='hidden-xs' >编号</th>
+<th width='20%'>用户id</th>
+<th width='20%'>呢称</th>
+<th width='30%'>姓名</th>
+<th style="cursor:hand" width='10%' >权限</th>
+<th style="cursor:hand" width='10%'>删除</th>
 </tr>
 </thead>
 <tbody>
@@ -110,6 +110,7 @@ $nums=$cnt+$page;
 echo "<td>$nums</td>\t";
 echo "<td><a href=\"user_edit.php?uid=$row[0]\">$row[0]</a></td>\t";
 echo "<td>$row[11]</td>\t";
+echo "<td>$row[13]</td>\t";
 echo "<td><a href=\"user_edit.php?uid=$row[0]\">edit</a></td>\t";
 echo "<td><a href=\"user_delete.php?uid=$row[0]\">delete</a></td>\t";
 echo "</tr>";

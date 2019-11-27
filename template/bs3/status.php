@@ -95,7 +95,7 @@ if ( isset( $_SESSION[ 'administrator' ] ) || isset( $_SESSION[ 'source_browser'
   echo "<input type=hidden name=problem_id value='".$_GET['problem_id']."'>";
   //echo "<input type=submit>";
   */
-  echo "<a href='/status1.php'  class='btn btn-default'>显示姓名</a>"; //Add by hxh 201911
+  echo "<a href='status1.php'  class='btn btn-default'>显示姓名</a>"; //Add by hxh 201911
 }
 echo "<input type=submit class='form-control' value='$MSG_SEARCH'></form>";
 ?>

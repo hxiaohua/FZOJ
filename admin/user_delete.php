@@ -4,10 +4,5 @@ if (!(isset($_SESSION['administrator']))){
 	echo "<a href='../loginpage.php'>Please Login First!</a>";
 	exit(1);
 }
-
-echo "开发中，尽情期待";
-
-echo $_GET['uid'];
-
-
+echo "升级开发中";
 ?>
