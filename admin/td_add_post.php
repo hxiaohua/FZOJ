@@ -18,7 +18,6 @@ $Create_user = $_SESSION[ 'user_id' ];
 $sql = "INSERT INTO `problem_list`(`title`, `pri`,`Create_time`,`Create_user`) 
 VALUES ('$tidan', '$Create_user','$Create_time','$Create_user')";
 
-
 $result = mysqli_query( $mysqli, $sql );
 $tid = mysqli_insert_id( $mysqli );
 //取得题单id，将剩下的题目类别和数据添加入题单数据表
