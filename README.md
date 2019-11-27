@@ -15,13 +15,10 @@
 ## 20170621
 作业模块添加判题功能，基本完成可能会有bug
 # OJ 2019 优化
-题单、homework、强制登录已经ok
+题单、homework、强制登录已经o
 
 
-
-
-
-
+使用Drew 2020 真好用，一键git
 Github入门教程与提高：https://www.jianshu.com/p/ec21055556f7
 
 
