@@ -5,7 +5,11 @@ require_once( './include/cache_start.php' );
 require_once( './include/db_info.inc.php' );
 require_once( './include/setlang.php' );
 require_once( "./include/my_func.inc.php" );
-
+if ( !( isset( $_SESSION[ 'administrator' ] ) ) ) {
+  $view_errors = "<p class='bg-warning'>对不起，没有权限查看</p>";
+  require( "template/" . $OJ_TEMPLATE . "/error.php" );
+  exit( 0 );
+}
 $view_title = $MSG_RANKLIST;
 
 $scope = "";
@@ -80,7 +84,7 @@ for ( $i = 0; $i < $rows_cnt; $i++ ) {
 
   $view_rank[ $i ][ 0 ] = $rank;
   $view_rank[ $i ][ 1 ] = "<div class=center><a href='userinfo.php?user=" . $row[ 'user_id' ] . "                                                            '>" . $row[ 'user_id' ] . "</a>" . "</div>";
-  $view_rank[ $i ][ 2 ] = "<div class=center>" . htmlentities( get_name($row[ 'user_id' ]), ENT_QUOTES, "UTF-8" ) . "</div>";
+  $view_rank[ $i ][ 2 ] = "<div class=center>" . htmlentities( get_name( $row[ 'user_id' ] ), ENT_QUOTES, "UTF-8" ) . "</div>";
   //  $view_rank[$i][2]=  "<div class=center>" . htmlentities ( $row['nick'] ,ENT_QUOTES,"UTF-8") ."</div>";
   //上面一行是原先的代码，基础修改
   $view_rank[ $i ][ 3 ] = "<div class=center><a href='status.php?user_id=" . $row[ 'user_id' ] . "&jresult=4'>" . $row[ 'solved' ] . "</a>" . "</div>";
