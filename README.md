@@ -24,5 +24,5 @@ Github入门教程与提高：https://www.jianshu.com/p/ec21055556f7
 检测用户管理员的关键代码：
 if (isset($_SESSION['administrator'])) $contest_ok=true;
 状态页面需要区分，普通状态页面和作业状态页面，实际作业是单独的状态，所以只用普通状态页面修改即可
-
+在模板页面添加，一个入口。
 
