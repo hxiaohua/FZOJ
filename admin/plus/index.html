@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>动态添加行删除行</title>
+<style>
+*{ margin:0; padding:0;}
+ ul{ list-style:none;}
+ .box{ width:900px; margin:50px auto;}
+ .box table{ width:100%; text-align:center;}
+ .box table td{ height:50px;}
+ .tianjia{ width:40px; height:20px; cursor:pointer;}
+ .shanchu{width:40px; height:20px; cursor:pointer;}
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+ <script type="text/javascript">
+  $(function(){
+	 $('.tianjia').click(function(e) {
+			var $html=$("<tr><td><input type='text' class='input_140'   placeholder='请输入姓名'/></td><td><input type='text' class='input_140'   placeholder='请输入姓名'/></td><td><input type='text' class='input_140'   placeholder='请输入姓名'/></td><td><input type='text' class='input_140'   placeholder='请输入姓名'/></td><td><a class='shanchu' onclick=\'sc()\'>删除</a></td></tr>");
+           $('.box table ').append($html);
+        }); 
+	  
+	})
+	function sc(){
+		$(" .box table tr").eq($(this).index()).remove();
+	}	
+	
+  </script>
+</head>
+<body>
+  <div class="box">
+  		<table cellpadding="1" cellspacing="0" border="0">
+        		<tr>
+                	<th width="16%">item</th>
+                    <th width="29%">item</th>
+                    <th width="20%">item</th>
+                    <th width="15%">item</th>
+                    <th width="20%">删除</th>
+                </tr>
+                <tr class="di">
+                	<td><input type='text' class='input_140'   placeholder='请输入姓名'/></td>
+                    <td><input type='text' class='input_140'   placeholder='请输入姓名'/></td>
+                    <td><input type='text' class='input_140'   placeholder='请输入姓名'/></td>
+                    <td><input type='text' class='input_140'   placeholder='请输入姓名'/></td>
+                    <td><a class="shanchu ">删除</a></td>
+                </tr><!--默认可删除-->
+        </table>
+        <div class="tianjia">添加</div>
+  </div>
+
+</body>
+</html>
