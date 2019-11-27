@@ -61,10 +61,10 @@ if ( !( isset( $_SESSION[ 'administrator' ] ) || isset( $_SESSION[ 'problem_edit
     <div class="tianjia"><a class="btn btn-link">添加一行</a> </div>
   </div>
   <?php require_once("../include/set_post_key.php");?>
-	<br>
-  <button type="submit" class="btn btn-success btn-lg">提交题单数据</button>
+  <br>
+  <button type="submit" class="btn btn-success btn-lg">确定新建</button>
 </form>
-		<p class='lead'>提示：任何一行的删除只有删除最后一行的数据</p>
+<p class='lead'>提示：删除和增加只对最后一行有效。</p>
 <?php require_once("../oj-footer.php");?>
 </body>
 </html>
