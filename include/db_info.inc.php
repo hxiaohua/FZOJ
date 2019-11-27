@@ -11,7 +11,7 @@ static 	$DB_NAME="jol";
 static 	$DB_USER="root";
 static 	$DB_PASS="";
 
-static 	$OJ_NAME="FZOJ";
+static 	$OJ_NAME="PZOJ";
 static 	$OJ_HOME="./";
 static 	$OJ_ADMIN="root@localhost";
 static 	$OJ_DATA="/home/judge/data";
