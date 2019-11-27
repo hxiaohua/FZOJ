@@ -8,7 +8,7 @@ if ( !( isset( $_SESSION[ 'administrator' ] ) || isset( $_SESSION[ 'problem_edit
 require_once( "../include/db_info.inc.php" );
 //接收到题单数据，进行写入数据库操作
 //var_dump( $_POST );
-//可能中文乱码的解决方案
+//可能中文乱码的解决方案，缺少数据校验，空白数据也会提交
 
 //第一步，插入题单页面
 $Create_time = date( "Y-m-d H:i:s" );
