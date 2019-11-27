@@ -195,11 +195,11 @@ else
 	
 
         $view_status[$i][0]=$row['solution_id'];
-       
+	
         if ($row['contest_id']>0) {
-                $view_status[$i][1]= "<a href='contestrank.php?cid=".$row['contest_id']."&user_id=".$row['user_id']."#".$row['user_id']."'>".$row['user_id']."</a>";
+                $view_status[$i][1]= "<a href='contestrank.php?cid=".$row['contest_id']."&user_id=".$row['user_id']."#".$row['user_id']."'>".get_name($row['user_id'])."</a>";//get_name()为新增的函数名
         }else{
-                $view_status[$i][1]= "<a href='userinfo.php?user=".$row['user_id']."'>".$row['user_id']."</a>";
+                $view_status[$i][1]= "<a href='userinfo.php?user=".$row['user_id']."'>".get_name($row['user_id'])."</a>";//get_name()为新增的函数名
         }
 
        if ($row['contest_id']>0) {

@@ -151,7 +151,20 @@ function check_ok($uid,$pid,$hid,$recheck){
 	else
 	return "";	
 }
-
+//根据uid获取姓名，没有姓名则返回Nick，Add by hxh
+function get_name($user_id)
+{
+	$mysqli=$GLOBALS['mysqli'];
+	$sql="SELECT nick,name FROM `users` WHERE `user_id`='$user_id'";
+	$result=mysqli_query($mysqli,$sql);
+	$row0=mysqli_fetch_array($result);
+	//var_dump($row0);
+	$name=$row0['name'];
+	if($name)
+		return $row0['name'];
+	else
+		return $row0['nick'];
+}
 
 function RemoveXSS($val) {
    // remove all non-printable characters. CR(0a) and LF(0b) and TAB(9) are allowed
