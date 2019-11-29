@@ -44,11 +44,18 @@ if ( isset( $_POST[ 'uname' ]) and  $_POST[ 'uname' ]!=null) {
 <link href="../css/bootstrap-3.4.1.css" rel="stylesheet" type="text/css">
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <link rel="stylesheet" href="../template/bs3/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../template/bs3/local.css">
+<link rel="stylesheet" href="../template/bs3/white.css">
 </head>
 <body>
 <div class="container">
-  <h3>修改名字</h3>
+	  <h3>修改名字</h3>
+	  <nav class="navbar navbar-default">
+    <div class="navbar-header"> 
+		<a href="#" class="navbar-brand">列表</a> 
+		<a href="user_name.php" class="navbar-brand">姓名</a> 
+	  	<a href="#" class="navbar-brand">添加</a> 
+	</div>
+  </nav>
   <p class='lead'>左边一列，输入用户名。右边一列，对应学生姓名</p>
   <form method="post">
     <?php require_once("../include/set_post_key.php");?>
