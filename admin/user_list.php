@@ -23,7 +23,6 @@ $cnt = $cnt / $page_cnt;
 $cnt = ceil( $cnt );
 //echo "---->分页数量".$cnt."<br />";
 //生成导航条，分页显示的实现
-
 //注意下面就是html页面了
 ?>
 <!DOCTYPE html>
@@ -36,24 +35,23 @@ $cnt = ceil( $cnt );
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 <!-- 新 Bootstrap 核心 CSS 文件 --> 
-<!-- <link rel="stylesheet" href="../template/bs3/bootstrap.min.css"> --> 
+ <link rel="stylesheet" href="../template/bs3/bootstrap.min.css">
 <!-- 可选的Bootstrap主题文件（一般不用引入） --> 
-<!-- <link rel="stylesheet" href="../template/bs3/bootstrap-theme.min.css"> -->
+ <link rel="stylesheet" href="../template/bs3/bootstrap-theme.min.css"> 
 <link href="../css/bootstrap-3.4.1.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../template/bs3/white.css">
 </head>
 <body>
 <div class="container"> 
   <!--导航条功能：https://learnku.com/articles/18764-->
-<center><h2>用户管理-用户列表</h2></center>
+    <h3>用户列表管理</h3>
   <nav class="navbar navbar-default">
     <div class="navbar-header"> 
-		<a href="user_list.php" class="navbar-brand">列表</a> 
-		<a href="user_name.php" class="navbar-brand">姓名</a> 
-	  	<a href="user_add.php" class="navbar-brand">添加</a> 
-	</div>
+		<a href="user_list.php" class="navbar-brand">用户列表</a> 
+		<a href="user_name.php" class="navbar-brand">名字修改</a> 
+	  	<a href="user_add.php" class="navbar-brand">批量添加</a> 	 
+	  </div>
   </nav>
-  
   <!--顶部一个导航链接条-->
   <center>
     <nav class="center">
@@ -94,9 +92,10 @@ $cnt = ceil( $cnt );
           <th width='10%'  class='hidden-xs' >编号</th>
           <th width='20%'>用户id</th>
           <th width='20%'>呢称</th>
-          <th width='30%'>姓名</th>
+          <th width='15%'>姓名</th>
+          <th width='15%'>备注</th>
           <th style="cursor:hand" width='10%' >权限</th>
-          <th style="cursor:hand" width='10%'>删除</th>
+          <th style="cursor:hand" width='10%'>禁用</th>
         </tr>
       </thead>
       <tbody>
@@ -121,8 +120,9 @@ $cnt = ceil( $cnt );
           echo "<td><a href=\"user_edit.php?uid=$row[0]\">$row[0]</a></td>\t";
           echo "<td>$row[11]</td>\t";
           echo "<td>$row[13]</td>\t";
-          echo "<td><a href=\"user_edit.php?uid=$row[0]\">edit</a></td>\t";
-          echo "<td><a href=\"user_delete.php?uid=$row[0]\">delete</a></td>\t";
+          echo "<td>$row[12]</td>\t";
+          echo "<td><a href=\"user_edit.php?uid=$row[0]\">编辑</a></td>\t";
+          echo "<td><a href=\"user_delete.php?uid=$row[0]\">禁用</a></td>\t";
           echo "</tr>";
         }
         ?>
@@ -137,7 +137,7 @@ $cnt = ceil( $cnt );
   <?php
   // include("../template/$OJ_TEMPLATE/js.php");尾部的著作权显示，注释不显示
   ?>
-  <!-- <script type="text/javascript" src="../include/jquery.tablesorter.js"></script> --> 
+   <script type="text/javascript" src="../include/jquery.tablesorter.js"></script>
   <script src="../js/jquery-1.12.4.min.js"></script> 
   <script src="../js/bootstrap-3.4.1.js"></script> 
   <script type="text/javascript">
@@ -146,8 +146,8 @@ $(document).ready(function()
 $("#problemset").tablesorter();
 }
 );
-</script> 
-	<div id="footer" class="center">GPLv2 licensed by <a href="https://github.com/hxiaohua/FZOJ">FZOJ</a> 2019 </div>
+</script>
+  <div id="footer" class="center">GPLv2 licensed by <a href="https://github.com/hxiaohua/FZOJ">FZOJ</a> 2019 </div>
 </div>
 </body>
 </html>

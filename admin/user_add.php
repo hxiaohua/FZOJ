@@ -39,35 +39,35 @@ if ( isset( $_POST[ 'uname' ]) and  $_POST[ 'uname' ]!=null) {
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-<!-- 新 Bootstrap 核心 CSS 文件 --> 
-<link rel="stylesheet" href="../template/bs3/bootstrap.min.css">
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+ <link rel="stylesheet" href="../template/bs3/bootstrap.min.css">
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <link rel="stylesheet" href="../template/bs3/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../template/bs3/white.css">
+
 </head>
 <body>
 <div class="container">
-	  <h3>修改名字</h3>
+	  <h3>批量添加用户</h3>
 	  <nav class="navbar navbar-default">
     <div class="navbar-header">               
 		<a href="user_list.php" class="navbar-brand">用户列表</a> 
 		<a href="user_name.php" class="navbar-brand">名字修改</a> 
-	  	<a href="user_add.php" class="navbar-brand">批量添加</a> 	
+	  	<a href="user_add.php" class="navbar-brand">批量添加</a> 
 	</div>
   </nav>
-  <p class='lead'>左边一列，输入用户名。右边一列，对应学生姓名</p>
+<p class='lead'>左边一列，输入用户名。右边一列，对应密码</p>
   <form method="post">
     <?php require_once("../include/set_post_key.php");?>
     用户名:
     <textarea name="ulist" rows="20" cols="20"></textarea>
-    学生名字:
-    <textarea name="uname" rows="20" cols="20"></textarea>
+    对应密码:
+    <textarea name="upass" rows="20" cols="20"></textarea>
     <br />
-    <button type="submit" class="btn btn-default">确认修改</button>
+    <button type="submit" class="btn btn-primary">确认添加</button>
   </form>
-  <p class='lead'>提示：先将学生名单表格统计好，然后将列复制到对应左右两边</p>
+  <p class='lead'>提示：先用表格生成好，学生名单表格统计好，然后将列复制到对应左右两边</p>
 	  <div id="footer" class="center">GPLv2 licensed by <a href="https://github.com/hxiaohua/FZOJ">FZOJ</a> 2019 </div>
-
 </div>
 </body>
 </html>

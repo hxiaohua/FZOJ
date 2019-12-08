@@ -26,7 +26,7 @@
       <?php
       //管理员查看姓名单独页面
       if ( isset( $_SESSION[ 'administrator' ] ) )
-        echo "  <a href='problemstatus1.php'  class='btn btn-info'>显示姓名</a>";
+        echo "  <a href='problemstatus1.php?id=$id'  class='btn btn-info'>显示姓名</a>";
       ?>
     </h2>
     <center>

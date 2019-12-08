@@ -62,8 +62,6 @@ if (isset($_SESSION['administrator'])){
 if (isset($_SESSION['administrator'])||isset( $_SESSION['password_setter'] )){
 ?><li>
 	<a class='btn btn-primary' href="changepass.php" target="main"><b><?php echo $MSG_SETPASSWORD?></b></a>
-		<a class='btn btn-success' href="user_name.php" target="main"><b><?php echo "修改姓名"?></b></a>
-
 <?php }
 if (isset($_SESSION['administrator'])){
 ?><li>
