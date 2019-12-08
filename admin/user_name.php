@@ -66,8 +66,7 @@ if ( isset( $_POST[ 'uname' ]) and  $_POST[ 'uname' ]!=null) {
     <button type="submit" class="btn btn-default">确认修改</button>
   </form>
   <p class='lead'>提示：先将学生名单表格统计好，然后将列复制到对应左右两边</p>
-	  <div id="footer" class="center">GPLv2 licensed by <a href="https://github.com/hxiaohua/FZOJ">FZOJ</a> 2019 </div>
-
+	  <div id="footer" class="center">GPLv2 licensed by <a href="https://github.com/hxiaohua/FZOJ" target="_blank">FZOJ</a> 2019 </div>
 </div>
 </body>
 </html>
