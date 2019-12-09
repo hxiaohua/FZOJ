@@ -92,7 +92,7 @@ $cnt = ceil( $cnt );
           <th width='15%'>学校</th>
           <th width='10%'>备注</th>
           <th style="cursor:hand" width='10%' >权限</th>
-          <th style="cursor:hand" width='10%'>禁用</th>
+          <th style="cursor:hand" width='10%'>锁定</th>
         </tr>
       </thead>
       <tbody>
@@ -120,8 +120,12 @@ $cnt = ceil( $cnt );
           echo "<td>$row[12]</td>\t";
           echo "<td>$row[14]</td>\t";
           echo "<td><a href=\"user_edit.php?uid=$row[0]\">编辑</a></td>\t";
-          echo "<td><a href=\"user_delete.php?uid=$row[0]\">禁用</a></td>\t";
+			if($row[4]=="Y")
+				echo "<td><a href=\"user_lock.php?uid=$row[0]&defunct=N\">启用</a></td>\t";
+			else
+				echo "<td><a href=\"user_lock.php?uid=$row[0]&defunct=Y\">锁定</a></td>\t";
           echo "</tr>";
+          //var_dump($row);
         }
         ?>
       </tbody>

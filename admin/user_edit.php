@@ -83,15 +83,15 @@ $row = mysqli_fetch_array( $result );
 	 <input type="hidden" name="uid" value="<?php echo $row['user_id'];?>">
     <div class="form-group">
       <label>姓名</label>
-      <input type="text" class="form-control" name="name" placeholder="Email" value="<?php echo $row['name'];?>">
+      <input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>">
     </div>
     <div class="form-group">
       <label>Nick name</label>
-      <input type="text" class="form-control" name="nick" placeholder="Email" value="<?php echo $row['nick'];?>">
+      <input type="text" class="form-control" name="nick" value="<?php echo $row['nick'];?>">
     </div>
     <div class="form-group">
       <label>School</label>
-      <input type="text" class="form-control" name="school" placeholder="" value="<?php echo $row['school'];?>">
+      <input type="text" class="form-control" name="school" value="<?php echo $row['school'];?>">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
