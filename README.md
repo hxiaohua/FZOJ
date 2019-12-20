@@ -53,4 +53,6 @@ Github入门教程与提高：https://www.jianshu.com/p/ec21055556f7
 
 批量添加、用户锁定已经完成 1209
 
+管理页面，user_id和keywords搜索功能Bug完成 1220
+
 
