@@ -5,14 +5,24 @@ if ( !( isset( $_SESSION[ 'administrator' ] ) ) ) {
   echo "<a href='../loginpage.php'>Please Login First!</a>";
   exit( 1 );
 }
+//var_dump( $_GET );
+if ( isset( $_GET[ 'search' ] )and $_GET[ 'search' ] != null ) {
+  $_SESSION[ 'search' ] = $_GET[ 'search' ];
+}else $_SESSION[ 'search' ]=null;
+if ( isset( $_SESSION[ 'search' ] ) ) {
+	$like=" where name like '%". $_SESSION[ 'search' ] . "%'";
+}
+else $like='';
+if ( isset( $_GET[ 'id' ] )and $_GET[ 'id' ] != null )
+  $like =" where user_id like '%" . $_GET[ 'id' ] . "%'";
 //检测用户登录，全局文件
 require_once( "../include/db_info.inc.php" );
 if ( isset( $_GET[ 'page' ] ) )
   $page = $_GET[ 'page' ];
 //设置分页等
 $page_cnt = 50; //每页显示50个用户
-
-$sql = "SELECT count(*) from users;";
+$sql = "SELECT count(*) from users$like";
+//根据是否有相关信息，改变查询条件
 $result = mysqli_query( $mysqli, $sql );
 echo mysqli_error( $mysqli );
 $row = mysqli_fetch_array( $result ); //Array与object不一样
@@ -75,7 +85,7 @@ $cnt = ceil( $cnt );
             <button class="form-control" type='submit' >Go</button>
           </form></td>
         <td  colspan='1'><form class="form-search form-inline">
-            <input type="text" name="search" class="form-control search-query" placeholder="Keywords">
+            <input type="text" name="search" class="form-control search-query" placeholder="Name Keyword" value="<?php echo $_SESSION['search']?>">
             <button type="submit" class="form-control">查找</button>
           </form></td>
       </tr>
@@ -102,7 +112,7 @@ $cnt = ceil( $cnt );
           $pageval = $_GET[ 'page' ];
         } else $pageval = 1;
         $page = ( $pageval - 1 ) * $page_cnt;
-        $sql = "select * from users limit $page,$page_cnt";
+        $sql = "select * from users$like limit $page,$page_cnt";
         $query = mysqli_query( $mysqli, $sql );
         $cnt = 0;
         while ( $row = mysqli_fetch_array( $query ) ) {
@@ -120,10 +130,10 @@ $cnt = ceil( $cnt );
           echo "<td>$row[12]</td>\t";
           echo "<td>$row[14]</td>\t";
           echo "<td><a href=\"user_edit.php?uid=$row[0]\">编辑</a></td>\t";
-			if($row[4]=="Y")
-				echo "<td><a href=\"user_lock.php?uid=$row[0]&defunct=N\">启用</a></td>\t";
-			else
-				echo "<td><a href=\"user_lock.php?uid=$row[0]&defunct=Y\">锁定</a></td>\t";
+          if ( $row[ 4 ] == "Y" )
+            echo "<td><a href=\"user_lock.php?uid=$row[0]&defunct=N\">启用</a></td>\t";
+          else
+            echo "<td><a href=\"user_lock.php?uid=$row[0]&defunct=Y\">锁定</a></td>\t";
           echo "</tr>";
           //var_dump($row);
         }
