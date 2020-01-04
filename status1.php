@@ -298,7 +298,7 @@ for ( $i = 0; $i < $rows_cnt; $i++ ) {
   if ( isset( $_GET[ 'cid' ] ) )
     require( "template/" . $OJ_TEMPLATE . "/conteststatus.php" );
   else
-    require( "template/" . $OJ_TEMPLATE . "/status.php" );
+    require( "template/" . $OJ_TEMPLATE . "/status1.php" );
   /////////////////////////Common foot
 if ( file_exists( './include/cache_end.php' ) )
   require_once( './include/cache_end.php' );

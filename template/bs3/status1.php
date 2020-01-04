@@ -25,7 +25,7 @@
 <div align=center class="input-append">
 <?php
 ?>
-<form id=simform class=form-inline action="status.php" method="get">
+<form id=simform class=form-inline action="status1.php" method="get">
 <?php echo $MSG_PROBLEM_ID?>:
 <input class="form-control" type=text size=4 name=problem_id value='<?php echo  htmlspecialchars($problem_id, ENT_QUOTES) ?>'>
 <?php echo $MSG_USER?>:
@@ -141,12 +141,12 @@ echo "<input type=submit class='form-control' value='$MSG_SEARCH'></form>";
     </tbody>
   </table>
 </div>
-<div id=center> <?php echo "[<a href=status.php?".$str2.">Top</a>]&nbsp;&nbsp;";
+<div id=center> <?php echo "[<a href=status1.php?".$str2.">Top</a>]&nbsp;&nbsp;";
 if (isset($_GET['prevtop']))
-echo " [ <a href = status.php?".$str2." &top=".intval($_GET['prevtop'])." > Previous Page </a>]&nbsp;&nbsp;";
+echo " [ <a href = status1.php?".$str2." &top=".intval($_GET['prevtop'])." > Previous Page </a>]&nbsp;&nbsp;";
   else
-    echo "[<a href=status.php?" . $str2 . "&top=" . ( $top + 20 ) . ">Previous Page</a>]&nbsp;&nbsp;";
-  echo "[<a href=status.php?" . $str2 . "&top=" . $bottom . "&prevtop=$top>Next Page</a>]";
+    echo "[<a href=status1.php?" . $str2 . "&top=" . ( $top + 20 ) . ">Previous Page</a>]&nbsp;&nbsp;";
+  echo "[<a href=status1.php?" . $str2 . "&top=" . $bottom . "&prevtop=$top>Next Page</a>]";
   ?> </div>
 </div>
 </div>

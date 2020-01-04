@@ -127,7 +127,7 @@ if ( !$OJ_MEMCACHE )mysqli_free_result( $result );
 
 
 /////////////////////////Template
-require( "template/" . $OJ_TEMPLATE . "/ranklist.php" );
+require( "template/" . $OJ_TEMPLATE . "/ranklist1.php" );
 /////////////////////////Common foot
 if ( file_exists( './include/cache_end.php' ) )
   require_once( './include/cache_end.php' );
