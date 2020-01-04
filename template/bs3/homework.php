@@ -30,33 +30,14 @@
 <h3>[<a href="homerank.php?hid=<?php echo $hid?>">完成情况</a>]
 
 </h3>
+
 <h3>homework<?php echo $view_hid?> - <?php echo $view_title ?></h3>
+</center>
 <p><?php echo $view_description?></p>
-<br>Start Time: <font color=#993399><?php echo $view_start_time?></font>
-End Time: <font color=#993399><?php echo $view_end_time?></font><br>
-Current Time: <font color=#993399><span id=nowdate > <?php echo date("Y-m-d H:i:s")?></span></font>
-Status:<?php
-if ($now>$end_time)
-echo "<span class=red>Ended</span>";
-else if ($now<$start_time)
-echo "<span class=red>Not Started</span>";
-else
-echo "<span class=red>Running</span>";
-?>&nbsp;&nbsp;
-<?php
-if ($view_private=='0')
-echo "<span class=blue>Public</font>";
-else
-echo "&nbsp;&nbsp;<span class=red>Private</font>";
-?>
-<br><br>
-<!--取消竞赛页面的列表正上方的三个链接
-[<a href="homerank.php?hid=<?php echo $hid?>">测评状态</a>]//这个是放在完成情况后面的，需要放回去即可
-[<a href='status.php?hid=<?php echo $view_hid?>'>Status</a>]
-[<a href='homeworkrank.php?hid=<?php echo $view_hid?>'>Standing</a>]
-[<a href='homeworkstatistics.php?hid=<?php echo $view_hid?>'>Statistics</a>]
--->
+
+
 </div>
+<center>
 <table id='problemset' class='table table-striped'  width='90%'>
 <thead>
 <tr align=center class='toprow'>
@@ -87,7 +68,9 @@ $cnt=1-$cnt;
 }
 ?>
 </tbody>
-</table></center>
+</table>
+
+</center>
       </div>
 
     </div> <!-- /container -->
