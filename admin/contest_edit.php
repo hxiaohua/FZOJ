@@ -67,8 +67,9 @@ if (isset($_POST['syear']))
 		//echo $sql_1;
 		mysqli_query($mysqli,$sql_1) or die(mysqli_error($mysqli));
 	}
+    /*
 	//添加用户真实名字，不用删除，直接插入即可，插入失败的就选用更新操作
-		$stuname = explode("\n", trim($_POST['uname']));
+    $stuname = explode("\n", trim($_POST['uname']));
 	if (count($pieces)>0 && strlen($pieces[0])>0){
 		for ($i=0;$i<count($pieces);$i++)
 		{
@@ -85,6 +86,8 @@ if (isset($_POST['syear']))
 			}
 		}
 	}
+    注释掉姓名更新功能 20200105 hxh
+    */
 	echo "<script>window.location.href=\"contest_list.php\";</script>";
 	exit();
 }else{
@@ -195,19 +198,15 @@ Users:
 </textarea>
  <!--添加用户姓名-->
     学生名字:
-    <textarea name="uname" rows="20" cols="20">
-	<?php
-	 if (isset($uname)) { echo $uname; }
+    <textarea name="uname" rows="20" cols="20"><?php
+	 if (isset($uname)) { echo trim($uname); }
 	 //加入用户真实姓名信息，进行显示，模仿实现即可
-	  ?>
-      </textarea>
-
-<h1>				&nbsp;&nbsp;&nbsp;
+	  ?></textarea>
+<h1>&nbsp;&nbsp;&nbsp;
 <input type=submit value=Submit name=submit>
 <input type=reset value=Reset name=reset>
 </h1>
-    学生名字可以不用录入，将会在作业提示学生输入<br />
-    如果输入，请左右保持一致，一行中id与姓名相对应
+      <p class='lead'>&nbsp;&nbsp;&nbsp;提示：姓名不用输入，更新姓名代码已经注释了！</p>
 </form>
 <?php 
 require_once("../oj-footer.php");

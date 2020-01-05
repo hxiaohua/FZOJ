@@ -71,6 +71,7 @@ if (isset($_POST['syear']))
 		//echo $sql_1;
 		mysqli_query($mysqli,$sql_1) or die(mysqli_error($mysqli));
 	}
+    /*
 	//添加用户真实名字，不用删除，直接插入即可，插入失败的就选用更新操作
 	$stuname = explode("\n", trim($_POST['uname']));
 	//应以用户真实姓名为准，当没有输入用户姓名时，不做更新操作。
@@ -88,6 +89,8 @@ if (isset($_POST['syear']))
 			}
 		}
 	}
+    注释掉用户名的更新功能 hxh 20200105
+    */
 	echo "<script>window.location.href=\"homework_list.php\";</script>";
 	exit();
 }else{
@@ -135,6 +138,7 @@ if (isset($_POST['syear']))
 	$result=mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
 	for ($i=mysqli_num_rows($result);$i>0;$i--){
 		$row=mysqli_fetch_row($result);
+        //$row[0]=trim($row[0]);
 		$uname=trim($uname.$row[0]);
 		if ($i>1) $uname=$uname."\n";
 	}
@@ -205,12 +209,11 @@ Users:
 </textarea>
  <!--添加用户姓名-->
     学生名字:
-    <textarea name="uname" rows="20" cols="20">
-	<?php
+    <textarea name="uname" rows="20" cols="20"><?php
 	 if (isset($uname)) { echo $uname; }
 	 //加入用户真实姓名信息，进行显示，模仿实现即可
 	  ?>
-      </textarea>
+</textarea>
 
 <h1>				&nbsp;&nbsp;&nbsp;
 <input type=submit value=Submit name=submit>
