@@ -55,4 +55,6 @@ Github入门教程与提高：https://www.jianshu.com/p/ec21055556f7
 
 管理页面，user_id和keywords搜索功能Bug完成 1220
 
+取消作业编辑和竞赛编辑页面的用户姓名更新功能
+
 
