@@ -138,7 +138,6 @@ if (isset($_POST['syear']))
 	$result=mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
 	for ($i=mysqli_num_rows($result);$i>0;$i--){
 		$row=mysqli_fetch_row($result);
-        //$row[0]=trim($row[0]);
 		$uname=trim($uname.$row[0]);
 		if ($i>1) $uname=$uname."\n";
 	}
@@ -219,9 +218,8 @@ Users:
 <input type=submit value=Submit name=submit>
 <input type=reset value=Reset name=reset>
 </h1>
-    学生名字可以不用录入，将会在作业提示学生输入<br />
-    如果输入，请左右保持一致，一行中id与姓名相对应
 </form>
+      <p class='lead'>&nbsp;&nbsp;&nbsp;提示：姓名不用输入，更新姓名代码已经注释，此处保留显示姓名功能</p>
 <?php 
 require_once("../oj-footer.php");
 ?>

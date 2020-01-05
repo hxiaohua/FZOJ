@@ -199,15 +199,16 @@ Users:
  <!--添加用户姓名-->
     学生名字:
     <textarea name="uname" rows="20" cols="20"><?php
-	 if (isset($uname)) { echo trim($uname); }
+	 if (isset($uname)) { echo $uname; }
 	 //加入用户真实姓名信息，进行显示，模仿实现即可
 	  ?></textarea>
 <h1>&nbsp;&nbsp;&nbsp;
 <input type=submit value=Submit name=submit>
 <input type=reset value=Reset name=reset>
 </h1>
-      <p class='lead'>&nbsp;&nbsp;&nbsp;提示：姓名不用输入，更新姓名代码已经注释了！</p>
 </form>
+      <p class='lead'>&nbsp;&nbsp;&nbsp;提示：姓名不用输入，更新姓名代码已经注释，此处保留显示姓名功能</p>
+
 <?php 
 require_once("../oj-footer.php");
 ?>
