@@ -27,15 +27,31 @@
       <div class="jumbotron">
 <center>
 <div>
-<h3>[<a href="homerank.php?hid=<?php echo $hid?>">完成情况</a>]
-
+<h3>[<a href="homerank.php?hid=<?php echo $hid?>">完成情况</a>]-[<a href="admin/homework_edit.php?hid=<?php echo $hid?>">作业编辑</a>]
 </h3>
 
 <h3>homework<?php echo $view_hid?> - <?php echo $view_title ?></h3>
 </center>
-<p><?php echo $view_description?></p>
-
-
+<p><?php //echo $view_description;如果采用原输出，请将本行注释删除即可?></p>
+<!--加入markdown显示 2020-->
+ <link rel="stylesheet" href="../markdown/css/editormd.preview.css" />
+<div id="test-markdown-view"> 
+<textarea style="display:none;"><?php echo $view_description;?></textarea>
+</div>
+<script src="../markdown/examples/js/jquery.min.js"></script> 
+<script src="../markdown/editormd.js"></script> 
+<script src="../markdown/lib/marked.min.js"></script> 
+<script src="../markdown/lib/prettify.min.js"></script> 
+<script type="text/javascript">
+    $(function() {
+	    var testView = editormd.markdownToHTML("test-markdown-view", {
+             //markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
+            // htmlDecode : true,  // Enable / disable HTML tag encode.
+            // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+        });
+    });
+</script>   
+<!--加入markdown显示 by hxh -->
 </div>
 <center>
 <table id='problemset' class='table table-striped'  width='90%'>
