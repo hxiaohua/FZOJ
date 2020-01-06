@@ -63,4 +63,6 @@ Github入门教程与提高：https://www.jianshu.com/p/ec21055556f7
 
 Homework已经完成了markdown显示与回显功能，其他页面可以参考实现。
 
+题解系统更新了相关的代码，支持markdown显示了
+
 
