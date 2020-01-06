@@ -63,13 +63,24 @@ $user_id=$_SESSION['user_id'];
   </tr>
   <thead>
   <tbody>
+            <!--加入markdown显示 2020-->
+<link rel="stylesheet" href="../markdown/css/editormd.preview.css" />
+<script src="../markdown/examples/js/jquery.min.js"></script> 
+<script src="../markdown/editormd.js"></script> 
+<script src="../markdown/lib/marked.min.js"></script> 
+<script src="../markdown/lib/prettify.min.js"></script> 
     <?php
       $i=1;
      // var_dump($result);
    // if(!$result)
       while ($row=mysqli_fetch_object($result)){
         echo '<tr> <th>'.$i.'</th>';
-        echo '<td>'.$row ->solution.'</td>';
+        //echo '<td>'.$row ->solution.'</td>';
+          
+        $descriptiontxt=$row ->description;
+        echo "<td><div id='test-markdown-view$i'><textarea style='display:none;'>$descriptiontxt</textarea></div>";
+        echo "<script>$(function() {var testView = editormd.markdownToHTML('test-markdown-view$i', {});});</script></td>";
+          
         echo '<td>'.$row ->tags.'</td>';
         $user_url=$OJ_URL.'/userinfo.php?user='.$row ->user_id;
         echo '<td><a href="'.$user_url.'">'.$row ->user_id.'</a></td>';
@@ -85,7 +96,16 @@ $user_id=$_SESSION['user_id'];
   </tbody>
 <table>
 
-
+<!--加入markdown显示 2020-->
+<link rel="stylesheet" href="../markdown/css/editormd.preview.css" />
+<script src="../markdown/examples/js/jquery.min.js"></script> 
+<script src="../markdown/editormd.js"></script> 
+<script src="../markdown/lib/marked.min.js"></script> 
+<script src="../markdown/lib/prettify.min.js"></script> 
+<div id="test-markdown-view"> 
+<textarea style="display:none;"><?php echo $view_description;?></textarea></div>
+<script type="text/javascript">$(function() {var testView = editormd.markdownToHTML("test-markdown-view", {});});</script>   
+<!--加入markdown显示 by hxh -->
 </div>
 
 

@@ -178,7 +178,7 @@ if(isset($_COOKIE['lastlang'])) $lastlang=$_COOKIE['lastlang'];
 <link rel="stylesheet" href="../markdown/css/editormd.min.css" />
       <div id="editor"> 
     <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
-    <textarea style="display:none;" name="description"><?php echo htmlentities($description,ENT_QUOTES,"UTF-8")?></textarea>
+    <textarea style="display:none;" name="description"><?php echo $description;?></textarea>
   </div>
   <script src="../markdown/examples/js/jquery.min.js"></script> 
   <script src="../markdown/editormd.js"></script> 

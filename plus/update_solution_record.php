@@ -85,7 +85,29 @@ $user_id=$_SESSION['user_id'];
     </div>
   </div>
 
-  <div class="form-group">
+        <!--修正为markdown-->
+    <!--markdown引入样式文件-->
+<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
+      <div id="editor"> 
+    <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
+    <textarea style="display:none;" name="description"><?php echo $row->description;?></textarea>
+  </div>
+  <script src="../markdown/examples/js/jquery.min.js"></script> 
+  <script src="../markdown/editormd.js"></script> 
+  <script>
+    $(function() {
+        var testEditor = editormd("editor",{
+            width:"90%",
+            height : 500,
+            path:"../markdown/lib/",//设置文件保存的路径
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
+        })
+    });
+</script>
+    <!--修正为markdown-->
+<!--  <div class="form-group">
     <label for="inputDescription" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
       <textarea class="form-control" name="description" rows="3"><?php  echo $row->description;?> </textarea>
@@ -97,7 +119,7 @@ $user_id=$_SESSION['user_id'];
     <div class="col-sm-10">
       <textarea class="form-control" name="solution" rows="3"><?php  echo $row->solution;?> </textarea>
     </div>
-  </div>
+  </div>-->
 
   <div class="form-group">
     <label for="inputStatus" class="col-sm-2 control-label">Status</label>

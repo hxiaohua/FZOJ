@@ -64,20 +64,42 @@ $user_id=$_SESSION['user_id'];
       <input type="text" class="form-control" id="inputProblemId" name="problem_id" placeholder="FZOJ题目ID" value="<?php if(isset($_GET['problem_id'])) echo $_GET['problem_id'];?>">
     </div>
   </div>
-
-  <div class="form-group">
+    
+    <!--修正为markdown-->
+    <!--markdown引入样式文件-->
+<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
+      <div id="editor"> 
+    <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
+    <textarea style="display:none;" name="description"><?php echo $description;?></textarea>
+  </div>
+  <script src="../markdown/examples/js/jquery.min.js"></script> 
+  <script src="../markdown/editormd.js"></script> 
+  <script>
+    $(function() {
+        var testEditor = editormd("editor",{
+            width:"90%",
+            height : 500,
+            path:"../markdown/lib/",//设置文件保存的路径
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
+        })
+    });
+</script>
+    <!--修正为markdown-->
+<!-- 注释原来的代码
+<div class="form-group">
     <label for="inputDescription" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
       <textarea class="form-control" name="description" rows="3">题目描述</textarea>
     </div>
   </div>
-  
   <div class="form-group">
     <label for="inputSolution" class="col-sm-2 control-label">Solution</label>
     <div class="col-sm-10">
       <textarea class="form-control" name="solution" rows="3">解法</textarea>
     </div>
-  </div>
+  </div>-->
 
   <div class="form-group">
     <label for="inputStatus" class="col-sm-2 control-label">Status</label>

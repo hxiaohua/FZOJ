@@ -46,6 +46,12 @@
   </tr>
   <thead>
   <tbody>
+      <!--加入markdown显示 2020-->
+<link rel="stylesheet" href="../markdown/css/editormd.preview.css" />
+<script src="../markdown/examples/js/jquery.min.js"></script> 
+<script src="../markdown/editormd.js"></script> 
+<script src="../markdown/lib/marked.min.js"></script> 
+<script src="../markdown/lib/prettify.min.js"></script> 
     <?php
       $i=1;
      // var_dump($result);
@@ -62,7 +68,11 @@
         echo '<td><a href="'.$url.'" >'.$row ->title.'</a></td>';
         //echo title end
 
-        echo '<td>'.$row ->description.'</td>';
+        //echo '<td>'.$row ->description.'</td>';
+        $descriptiontxt=$row ->description;
+        echo "<td><div id='test-markdown-view$i'><textarea style='display:none;'>$descriptiontxt</textarea></div>";
+        echo "<script>$(function() {var testView = editormd.markdownToHTML('test-markdown-view$i', {});});</script></td>";
+          
         echo '<td>'.$row ->solution.'</td>';
         echo '<td>'.$row ->status.'</td>';
         echo '<td>'.$row ->source.'</td>';
@@ -95,8 +105,6 @@
 
 </div>
 
-
- 
 <SCRIPT LANGUAGE=javascript> 
 function p_del() { 
   var msg = "您真的确定要删除吗？\n\n请确认！"; 
