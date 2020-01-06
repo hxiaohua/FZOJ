@@ -71,26 +71,6 @@ if (isset($_POST['syear']))
 		//echo $sql_1;
 		mysqli_query($mysqli,$sql_1) or die(mysqli_error($mysqli));
 	}
-    /*
-	//添加用户真实名字，不用删除，直接插入即可，插入失败的就选用更新操作
-	$stuname = explode("\n", trim($_POST['uname']));
-	//应以用户真实姓名为准，当没有输入用户姓名时，不做更新操作。
-	if (count($stuname)>0 && strlen($stuname[0])>0){
-		for ($i=0;$i<count($pieces);$i++)
-		{
-			$stuname[$i]=mysqli_real_escape_string($mysqli,htmlentities ($stuname[$i],ENT_QUOTES,"UTF-8"));
-			$sql_1="select * from users where user_id='".trim($pieces[$i])."'";
-			if(mysqli_query($mysqli,$sql_1))//数据库中找到用户就进行更新
-			{
-				$sql_1="UPDATE `users` 
-				SET `name`='".trim($stuname[$i]).
-				"' WHERE (`user_id`='".trim($pieces[$i])."')";
-				mysqli_query($mysqli,$sql_1);
-			}
-		}
-	}
-    注释掉用户名的更新功能 hxh 20200105
-    */
 	echo "<script>window.location.href=\"homework_list.php\";</script>";
 	exit();
 }else{
@@ -186,12 +166,35 @@ if(isset($_COOKIE['lastlang'])) $lastlang=$_COOKIE['lastlang'];
   }
 
 ?>
+	
    </select>
 <br>
 <p align=left>Description:<br>
-<textarea class="kindeditor" rows=13 name=description cols=80>
-<?php echo htmlentities($description,ENT_QUOTES,"UTF-8")?>
-</textarea>
+<!--<textarea class="kindeditor" rows=13 name=description0 cols=80>
+<?php //echo htmlentities($description,ENT_QUOTES,"UTF-8")?>
+</textarea>-->
+    <!--修正为markdown-->
+    <!--markdown引入样式文件-->
+<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
+      <div id="editor"> 
+    <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
+    <textarea style="display:none;" name="description"><?php echo htmlentities($description,ENT_QUOTES,"UTF-8")?></textarea>
+  </div>
+  <script src="../markdown/examples/js/jquery.min.js"></script> 
+  <script src="../markdown/editormd.js"></script> 
+  <script>
+    $(function() {
+        var testEditor = editormd("editor",{
+            width:"90%",
+            height : 500,
+            path:"../markdown/lib/",//设置文件保存的路径
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
+        })
+    });
+</script>
+    <!--修正为markdown-->
 <!--显示是否重重判-->
 <br />可选项：<input type="checkbox" name="recheck"
 <?php
