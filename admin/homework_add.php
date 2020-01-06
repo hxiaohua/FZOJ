@@ -189,8 +189,32 @@ $lang_count=count($language_ext);
 
     <p align="left">Description:<br>
      
-    <textarea class=kindeditor rows=13 name=description cols=80>
+<!--    <textarea class=kindeditor rows=13 name=description cols=80>
     </textarea>
+富文本编辑器已经被注释，如需恢复，请取消注释本区域内代码
+-->
+        
+ <!--修正为markdown-->
+    <!--markdown引入样式文件-->
+<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
+      <div id="editor"> 
+    <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
+    <textarea style="display:none;" name="description"><?php echo $description;?></textarea>
+        </div>
+  <script src="../markdown/examples/js/jquery.min.js"></script> 
+  <script src="../markdown/editormd.js"></script> 
+  <script>
+    $(function() {
+        var testEditor = editormd("editor",{
+            width:"90%",
+            height : 500,
+            path:"../markdown/lib/",//设置文件保存的路径
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
+        })
+    });
+</script> <!--修正为markdown-->  
     </p>
 	&nbsp;&nbsp;&nbsp;可选项：<input type="checkbox" name="reCheck">是否重判</input><br />
     Users:

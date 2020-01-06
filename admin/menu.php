@@ -17,6 +17,7 @@
 <ol>
 	<li>
 		<a class='btn btn-primary' href="watch.php" target="main"><b><?php echo $MSG_SEEOJ?></b></a>
+        <a class='btn btn-primary' href="../" target="_blank"><b>回到首页</b></a>
 <?php if (isset($_SESSION['administrator'])){
 	?>
 	<li>
