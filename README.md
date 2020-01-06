@@ -61,4 +61,6 @@ Github入门教程与提高：https://www.jianshu.com/p/ec21055556f7
 
 加入markdown编辑器源码，还有图片上传的接口API
 
+Homework已经完成了markdown显示与回显功能，其他页面可以参考实现。
+
 
