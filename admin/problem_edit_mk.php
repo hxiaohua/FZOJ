@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Edit Problem</title>
+<title>Edit Problem Markdown</title>
 </head>
 <body>
 <center>
@@ -25,30 +25,51 @@ include_once("kindeditor.php") ;
 <?php if(isset($_GET['id'])){
 ;//	require_once("../include/check_get_key.php");
 ?>
-<h1>Edit problem</h1>
+<h1>Edit problem Markdown</h1>
 <form method=POST action=problem_edit.php>
 <input type=hidden name=problem_id value=New Problem>
 <?php $sql="SELECT * FROM `problem` WHERE `problem_id`=".intval($_GET['id']);
 $result=mysqli_query($mysqli,$sql);
 $row=mysqli_fetch_object($result);
-if($row->isMarkdown)
-      header('Location:problem_edit_mk.php?id='.$_GET['id']);  
 ?>
 <p>Problem Id: <?php echo $row->problem_id?></p>
 <input type=hidden name=problem_id value='<?php echo $row->problem_id?>'>
 <p>Title:<input type=text name=title size=71 value='<?php echo htmlentities($row->title,ENT_QUOTES,"UTF-8")?>'></p>
 <p>Time Limit:<input type=text name=time_limit size=20 value='<?php echo $row->time_limit?>'>S</p>
 <p>Memory Limit:<input type=text name=memory_limit size=20 value='<?php echo $row->memory_limit?>'>MByte</p>
-<p>Description:<br><textarea class="kindeditor" rows=13 name=description cols=120><?php echo htmlentities($row->description,ENT_QUOTES,"UTF-8")?></textarea></p>
-<p>Input:<br><textarea class="kindeditor" rows=13 name=input cols=120><?php echo htmlentities($row->input,ENT_QUOTES,"UTF-8")?></textarea></p>
-<p>Output:<br><textarea class="kindeditor" rows=13 name=output cols=120><?php echo htmlentities($row->output,ENT_QUOTES,"UTF-8")?></textarea></p>
-
-<p>Sample Input:<br><textarea rows=13 name=sample_input cols=120><?php echo htmlentities($row->sample_input,ENT_QUOTES,"UTF-8")?></textarea></p>
-<p>Sample Output:<br><textarea rows=13 name=sample_output cols=120><?php echo htmlentities($row->sample_output,ENT_QUOTES,"UTF-8")?></textarea></p>
-<p>Hint:<br>
-<textarea class="kindeditor" rows=13 name=hint cols=120><?php echo htmlentities($row->hint,ENT_QUOTES,"UTF-8")?></textarea></p>
-</p>
-<p>SpecialJudge: 
+Description:
+    <!--修正为markdown-->
+    <!--markdown引入样式文件-->
+<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
+      <div id="editor"> 
+    <textarea style="display:none;" name="description"><?php echo $row->description;?></textarea>
+  </div>
+  <script src="../markdown/examples/js/jquery.min.js"></script> 
+  <script src="../markdown/editormd.js"></script> 
+  <script>
+    $(function() {
+        var testEditor = editormd("editor",{
+            width:"90%",
+            height : 500,
+            path:"../markdown/lib/",//设置文件保存的路径
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
+        })
+    });
+</script>
+    <!--修正为markdown-->
+<!--升级为markdown编辑器，保留原来的name，添加hidden标签-->
+<input type="hidden" name="input" value=""/>
+<input type="hidden" name="output" value=""/>
+<input type="hidden" name="sample_input" value=""/>
+<input type="hidden" name="sample_output" value=""/>
+<input type="hidden" name="test_input" value=""/>
+<input type="hidden" name="test_output" value=""/>
+<input type="hidden" name="hint" value=""/>
+    <!--不支持老的题目改为Markdown-->
+    
+SpecialJudge: 
 N<input type=radio name=spj value='0' <?php echo $row->spj=="0"?"checked":""?>>
 Y<input type=radio name=spj value='1' <?php echo $row->spj=="1"?"checked":""?>></p>
 <p>Source:<br><textarea name=source rows=1 cols=70><?php echo htmlentities($row->source,ENT_QUOTES,"UTF-8")?></textarea></p>
