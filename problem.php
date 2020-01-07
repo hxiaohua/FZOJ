@@ -116,7 +116,10 @@ mysqli_free_result($result);
 
 
 /////////////////////////Template
-require("template/".$OJ_TEMPLATE."/problem.php");
+if($row->isMarkdown)//2020 更新根据题目类型选择显示的标签
+    require("template/".$OJ_TEMPLATE."/problem_mk.php");
+else
+    require("template/".$OJ_TEMPLATE."/problem.php");
 /////////////////////////Common foot
 if(file_exists('./include/cache_end.php'))
         require_once('./include/cache_end.php');
