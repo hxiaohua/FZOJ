@@ -65,4 +65,5 @@ Homework已经完成了markdown显示与回显功能，其他页面可以参考�
 
 题解系统更新了相关的代码，支持markdown显示了
 
+problem数据表添加isMarkdown字段，默认值为0
 

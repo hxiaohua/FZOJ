@@ -18,8 +18,8 @@ if (!(isset($_SESSION['administrator'])||isset($_SESSION['problem_editor']))){
 <?php
 include_once("kindeditor.php") ;
 ?>
-<h1 >Add New problem</h1>
-    <h2>使用-><a href="problem_add_page_mk.php">MarkDown编辑</a></h2>
+<h1 >Add New problem Markdown</h1>
+    <h2>返回<a href="problem_add_page.php">传统界面编辑</a></h2>
 <form method=POST action=problem_add.php>
 <input type=hidden name=problem_id value="New Problem">
 <p align=left>Problem Id:&nbsp;&nbsp;New Problem</p>
@@ -27,29 +27,37 @@ include_once("kindeditor.php") ;
 <p align=left>Time Limit:<input type=text name=time_limit size=20 value=1>S</p>
 <p align=left>Memory Limit:<input type=text name=memory_limit size=20 value=128>MByte</p>
 <p align=left>Description:<br>
-<textarea class="kindeditor" rows=13 name=description cols=80></textarea>
+  <!--修正为markdown-->
+<!--markdown引入样式文件-->
+<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
+<div id="editor"> 
+    <textarea style="display:none;" name="description"><?php echo $description;?></textarea>
+  </div>
+  <script src="../markdown/examples/js/jquery.min.js"></script> 
+  <script src="../markdown/editormd.js"></script> 
+  <script>
+    $(function() {
+        var testEditor = editormd("editor",{
+            width:"90%",
+            height : 500,
+            path:"../markdown/lib/",//设置文件保存的路径
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
+        })
+    });
+</script>
+    <!--修正为markdown-->
+    <!--升级为markdown编辑器，保留原来的name，添加hidden标签-->
+<input type="hidden" name="isMarkdown" value="1"/>
+<input type="hidden" name="input" value=""/>
+<input type="hidden" name="output" value=""/>
+<input type="hidden" name="sample_input" value=""/>
+<input type="hidden" name="sample_output" value=""/>
+<input type="hidden" name="test_input" value=""/>
+<input type="hidden" name="test_output" value=""/>
+<input type="hidden" name="hint" value=""/>
 
-</p>
-<input type="hidden" name="isMarkdown" value="0"/>
-<p align=left>Input:<br>
-<textarea  class="kindeditor" rows=13 name=input cols=80></textarea>
-
-</p>
-
-</p>
-<p align=left>Output:<br>
-<textarea  class="kindeditor" rows=13 name=output cols=80></textarea>
-
-
-
-</p>
-<p align=left>Sample Input:<br><textarea  class="input input-xxlarge"  rows=13 name=sample_input cols=80></textarea></p>
-<p align=left>Sample Output:<br><textarea  class="input input-xxlarge"  rows=13 name=sample_output cols=80></textarea></p>
-<p align=left>Test Input:<br><textarea  class="input input-xxlarge" rows=13 name=test_input cols=80></textarea></p>
-<p align=left>Test Output:<br><textarea  class="input input-xxlarge"  rows=13 name=test_output cols=80></textarea></p>
-<p align=left>Hint:<br>
-<textarea class="kindeditor" rows=13 name=hint cols=80></textarea>
-</p>
 <p>SpecialJudge: N<input type=radio name=spj value='0' checked>Y<input type=radio name=spj value='1'></p>
 <p align=left>Source:<br><textarea name=source rows=1 cols=70></textarea></p>
 <p align=left>contest:

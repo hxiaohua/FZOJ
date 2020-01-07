@@ -10,8 +10,11 @@ if (!(isset($_SESSION['administrator'])||isset($_SESSION['problem_editor']))){
 <?php require_once ("../include/problem.php");
 ?>
 <?php // contest_id
-
-
+//2020新增markdown编辑器
+//var_dump($_POST);
+//exit();
+$isMarkdown=$_POST ['isMarkdown'];
+//2020新增markdown编辑器
 $title = $_POST ['title'];
 $time_limit = $_POST ['time_limit'];
 $memory_limit = $_POST ['memory_limit'];
@@ -42,7 +45,7 @@ if (get_magic_quotes_gpc ()) {
 	$source = stripslashes ( $source );
 }
 //echo "->".$OJ_DATA."<-"; 
-$pid=addproblem ( $title, $time_limit, $memory_limit, $description, $input, $output, $sample_input, $sample_output, $hint, $source, $spj, $OJ_DATA );
+$pid=addproblem ( $title, $time_limit, $memory_limit, $description, $input, $output, $sample_input, $sample_output, $hint, $source, $spj, $OJ_DATA,$isMarkdown);
 $basedir = "$OJ_DATA/$pid";
 mkdir ( $basedir );
 if(strlen($sample_output)&&!strlen($sample_input)) $sample_input="0";
