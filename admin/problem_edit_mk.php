@@ -52,6 +52,7 @@ Description:
             width:"90%",
             height : 500,
             path:"../markdown/lib/",//设置文件保存的路径
+            tex:true,                   // 开启科学公式TeX语言支持，默认关闭
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL : "../kindeditor/php/upload_mk_json.php",

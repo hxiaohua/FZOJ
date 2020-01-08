@@ -71,7 +71,7 @@ echo "</center>";
 <script type="text/javascript">
     $(function() {
 	    var testView = editormd.markdownToHTML("test-markdown-view", {
-            
+            tex:true,  // 开启公式，默认不解析
         });
     });
 </script>   
