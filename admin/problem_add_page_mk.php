@@ -15,9 +15,7 @@ if (!(isset($_SESSION['administrator'])||isset($_SESSION['problem_editor']))){
 	exit(1);
 }
 ?>
-<?php
-include_once("kindeditor.php") ;
-?>
+    
 <h1 >Add New problem Markdown</h1>
     <h2>返回<a href="problem_add_page.php">传统界面编辑</a></h2>
 <form method=POST action=problem_add.php>
@@ -28,26 +26,7 @@ include_once("kindeditor.php") ;
 <p align=left>Memory Limit:<input type=text name=memory_limit size=20 value=128>MByte</p>
 <p align=left>Description:<br>
   <!--修正为markdown-->
-<!--markdown引入样式文件-->
-<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
-<div id="editor"> 
-    <textarea style="display:none;" name="description"><?php echo $description;?></textarea>
-  </div>
-  <script src="../markdown/examples/js/jquery.min.js"></script> 
-  <script src="../markdown/editormd.js"></script> 
-  <script>
-    $(function() {
-        var testEditor = editormd("editor",{
-            width:"90%",
-            height : 500,
-            path:"../markdown/lib/",//设置文件保存的路径
-            tex:true,                   // 开启科学公式TeX语言支持，默认关闭
-            imageUpload : true,
-            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
-        })
-    });
-</script>
+   <?php require_once("../markdown/markdown_edit.php");?>
     <!--修正为markdown-->
     <!--升级为markdown编辑器，保留原来的name，添加hidden标签-->
 <input type="hidden" name="isMarkdown" value="1"/>

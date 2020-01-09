@@ -1,5 +1,5 @@
 <?php require("admin-header.php");
-include_once("kindeditor.php") ;
+//include_once("kindeditor.php") ;
 include_once("../lang/en.php");
 include_once("../include/const.inc.php");
 $recheck='N';//全局变量，默认不重判
@@ -171,30 +171,10 @@ if(isset($_COOKIE['lastlang'])) $lastlang=$_COOKIE['lastlang'];
 <br>
 <p align=left>Description:<br>
 <!--<textarea class="kindeditor" rows=13 name=description0 cols=80>
-<?php //echo htmlentities($description,ENT_QUOTES,"UTF-8")?>
+<?php //echo htmlentities($description,ENT_QUOTES,"UTF-8")
+require_once("../markdown/markdown_edit.php");?>
 </textarea>-->
     <!--修正为markdown-->
-    <!--markdown引入样式文件-->
-<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
-      <div id="editor"> 
-    <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
-    <textarea style="display:none;" name="description"><?php echo $description;?></textarea>
-  </div>
-  <script src="../markdown/examples/js/jquery.min.js"></script> 
-  <script src="../markdown/editormd.js"></script> 
-  <script>
-    $(function() {
-        var testEditor = editormd("editor",{
-            width:"90%",
-            height : 500,
-            path:"../markdown/lib/",//设置文件保存的路径
-            tex:true,                   // 开启科学公式TeX语言支持，默认关闭
-            imageUpload : true,
-            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
-        })
-    });
-</script>
     <!--修正为markdown-->
 <!--显示是否重重判-->
 <br />可选项：<input type="checkbox" name="recheck"

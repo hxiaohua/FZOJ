@@ -15,9 +15,7 @@ if (!(isset($_SESSION['administrator'])
 	exit(1);
 }
 ?>
-<?php
-include_once("kindeditor.php") ;
-?>
+
 <p align="center"><font color="#333399" size="4">Welcome To Administrator's Page of Judge Online of ACM ICPC, <?php echo $OJ_NAME?>.</font>
 <td width="100"></td>
 </center>
@@ -39,26 +37,10 @@ $row=mysqli_fetch_object($result);
 <p>Memory Limit:<input type=text name=memory_limit size=20 value='<?php echo $row->memory_limit?>'>MByte</p>
 Description:
     <!--修正为markdown-->
-    <!--markdown引入样式文件-->
-<link rel="stylesheet" href="../markdown/css/editormd.min.css" />
-      <div id="editor"> 
-    <textarea style="display:none;" name="description"><?php echo $row->description;?></textarea>
-  </div>
-  <script src="../markdown/examples/js/jquery.min.js"></script> 
-  <script src="../markdown/editormd.js"></script> 
-  <script>
-    $(function() {
-        var testEditor = editormd("editor",{
-            width:"90%",
-            height : 500,
-            path:"../markdown/lib/",//设置文件保存的路径
-            tex:true,                   // 开启科学公式TeX语言支持，默认关闭
-            imageUpload : true,
-            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "../kindeditor/php/upload_mk_json.php",
-        })
-    });
-</script>
+ <?php 
+    $description=$row->description;
+    require_once("../markdown/markdown_edit.php");
+    ?>
     <!--修正为markdown-->
 <!--升级为markdown编辑器，保留原来的name，添加hidden标签-->
 <input type="hidden" name="input" value=""/>

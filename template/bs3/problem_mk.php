@@ -57,25 +57,10 @@ require_once("include/set_get_key.php");
 <!--  [<a href="admin/quixplorer/index.php?action=list&dir=<?php echo $row->problem_id?>&order=name&srt=yes" >TestData</a>]-->
 <?php
 }
-echo "</center>";
+echo "</center>"; 
+    $view_description=$row->description;
+    require_once("markdown/markdown_view.php");
 ?>
-    <!--加入markdown显示 2020-->
-<link rel="stylesheet" href="../markdown/css/editormd.preview.css" />
-<div id="test-markdown-view"> 
-<textarea style="display:none;"><?php echo $row->description;?></textarea>
-</div>
-<script src="../markdown/examples/js/jquery.min.js"></script> 
-<script src="../markdown/editormd.js"></script> 
-<script src="../markdown/lib/marked.min.js"></script> 
-<script src="../markdown/lib/prettify.min.js"></script> 
-<script type="text/javascript">
-    $(function() {
-	    var testView = editormd.markdownToHTML("test-markdown-view", {
-            tex:true,  // 开启公式，默认不解析
-        });
-    });
-</script>   
-<!--加入markdown显示 by hxh -->   
 <?php    
 echo "<center>";
 if ($pr_flag){
