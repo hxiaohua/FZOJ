@@ -24,7 +24,7 @@
     <div class="container">
     <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="jumbotron1">
 	
 <?php 
 if ($pr_flag){

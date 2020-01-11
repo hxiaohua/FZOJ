@@ -24,7 +24,7 @@
     <div class="container">
     <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="jumbotron1">
 <center>
 <div>
 <h3>[<a href="homerank.php?hid=<?php echo $hid?>">完成情况</a>]-[<a href="admin/homework_edit.php?hid=<?php echo $hid?>">作业编辑</a>]
