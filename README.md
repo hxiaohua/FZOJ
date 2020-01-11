@@ -69,3 +69,5 @@ problem数据表添加isMarkdown字段，默认值为0
 
 Markdown功能基本完成，等待测试
 
+markdown显示问题，将jumbotron1改名，可能是不兼容bootstrap的某些CSS样式
+
