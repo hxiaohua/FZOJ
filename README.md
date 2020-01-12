@@ -71,5 +71,5 @@ Markdown功能基本完成，等待测试
 
 markdown显示问题，将jumbotron1改名，可能是不兼容bootstrap的某些CSS样式
 
-/markdown在线编辑器功能，可以防止长时间未登陆Cookie失效。
+/markdown在线编辑器功能，可以防止长时间未登陆Cookie失效，编辑好后复制走即可。
 
