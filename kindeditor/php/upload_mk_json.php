@@ -5,20 +5,19 @@
  * 本PHP程序是演示程序，建议不要直接在实际项目中使用。
  * 如果您确定直接使用本程序，使用之前请仔细确认相关安全设置。
  *2020 本代码修改自upload_json，更新相关文件和接口设置。--by hxiaohua
- *
  */
-require_once("../../include/db_info.inc.php");
-
-if (!(isset($_SESSION[$OJ_NAME.'_'.'administrator'])
-      ||isset($_SESSION[$OJ_NAME.'_'.'problem_editor'])
-      ||isset($_SESSION[$OJ_NAME.'_'.'contest_creator'])
+@session_start();
+if (!(isset($_SESSION['administrator'])
+      ||isset($_SESSION['problem_editor'])
+      ||isset($_SESSION['contest_creator'])
      )){
-        //echo "<a href='../loginpage.php'>Please Login First!</a>";
-		echo json_encode(array('success'=>0,'message'=>'请先登录','url' =>'12312')); 
+		echo json_encode(array('success'=>0,'message'=>'请用管理员账户登录','url' =>'')); 
         exit(1);
 }
 
+
 require_once 'JSON.php';
+
 $php_path = dirname(__FILE__) . '/';
 $php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
@@ -31,15 +30,12 @@ $ext_arr = array(
 	'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp'),
 	'flash' => array('swf', 'flv'),
 	'media' => array('swf', 'flv', 'mp3', 'wav', 'wma', 'wmv', 'mid', 'avi', 'mpg', 'asf', 'rm', 'rmvb'),
-	'file' => array('pdf','doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
+	'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
 );
 //最大文件大小
-$max_size = 400*1024*1024;
+$max_size = 1000000;
 
 $save_path = realpath($save_path) . '/';
-
-
-//var_dump($_FILES);
 
 //PHP上传失败
 if (!empty($_FILES['editormd-image-file']['error'])) {
@@ -90,7 +86,7 @@ if (empty($_FILES) === false) {
 	}
 	//检查目录写权限
 	if (@is_writable($save_path) === false) {
-		alert("上传目录没有写权限。在服务器上执行下述命令解决该问题:\n chown www-data -R /home/judge/src/web/upload \n");
+		alert("上传目录没有写权限。");
 	}
 	//检查是否已上传
 	if (@is_uploaded_file($tmp_name) === false) {
