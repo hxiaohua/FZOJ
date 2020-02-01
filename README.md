@@ -73,3 +73,11 @@ markdown显示问题，将jumbotron1改名，可能是不兼容bootstrap的某�
 
 /markdown在线编辑器功能，可以防止长时间未登陆Cookie失效，编辑好后复制走即可。
 
+## 202002更新记录
+
+1、取消后端公式功能
+2、后端编辑时将markdown和html同时存贮，前端显示html时加载原生KaTeX解析数学公式
+3、无数据库变动，html字段存贮到input字段
+4、在线markdown编辑器增加可视化公式编辑按钮和首页按钮
+
+

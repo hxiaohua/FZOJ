@@ -11,15 +11,17 @@ if (!(isset($_SESSION['administrator'])||isset($_SESSION['problem_editor']))){
 ?>
 <?php // contest_id
 //2020新增markdown编辑器
-//var_dump($_POST);
-//exit();
+//var_dump($_POST);exit();
 $isMarkdown=$_POST ['isMarkdown'];
+$isMarkdown=intval($isMarkdown);
 //2020新增markdown编辑器
 $title = $_POST ['title'];
 $time_limit = $_POST ['time_limit'];
 $memory_limit = $_POST ['memory_limit'];
 $description = $_POST ['description'];
 $input = $_POST ['input'];
+if(isset($_POST ['editor-html-code']))
+    $input = $_POST ['editor-html-code'];
 $output = $_POST ['output'];
 $sample_input = $_POST ['sample_input'];
 $sample_output = $_POST ['sample_output'];

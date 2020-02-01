@@ -22,9 +22,10 @@ if (!(isset($_SESSION['administrator'])
 <hr>
 <?php if(isset($_GET['id'])){
 ;//	require_once("../include/check_get_key.php");
+    //markdown提交到自己这里来了，添加也要变化
 ?>
 <h1>Edit problem Markdown</h1>
-<form method=POST action=problem_edit.php>
+<form method=POST action=problem_edit_mk.php>
 <input type=hidden name=problem_id value=New Problem>
 <?php $sql="SELECT * FROM `problem` WHERE `problem_id`=".intval($_GET['id']);
 $result=mysqli_query($mysqli,$sql);
@@ -70,7 +71,7 @@ $title=$_POST['title'];
 $time_limit=$_POST['time_limit'];
 $memory_limit=$_POST['memory_limit'];
 $description=$_POST['description'];
-$input=$_POST['input'];
+$input=$_POST['editor-html-code'];//调整为html的markdown代码
 $output=$_POST['output'];
 $sample_input=$_POST['sample_input'];
 $sample_output=$_POST['sample_output'];
