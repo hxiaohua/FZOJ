@@ -75,9 +75,13 @@ markdown显示问题，将jumbotron1改名，可能是不兼容bootstrap的某�
 
 ## 202002更新记录
 
-1、取消后端公式功能
-2、后端编辑时将markdown和html同时存贮，前端显示html时加载原生KaTeX解析数学公式
-3、无数据库变动，html字段存贮到input字段
-4、在线markdown编辑器增加可视化公式编辑按钮和首页按钮
+为了解决数学公式显示问题的提出的，仍然需要用$$间隔开
+
+取消后端公式功能,后端编辑时将markdown和html同时存贮，前端显示html时加载原生KaTeX解析数学公式
+
+无数据库变动，html字段存贮到input字段
+
+在线markdown编辑器增加可视化公式编辑按钮和首页按钮
+
 
 
