@@ -17,16 +17,8 @@
              //markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
             // htmlDecode : true,  // Enable / disable HTML tag encode.
             // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
-           tex:true,                   // 开启科学公式TeX语言支持，默认关闭
+           //tex:true,                   // 开启科学公式TeX语言支持，默认关闭
         });
     });
 </script>   
-<!--加入markdown显示 by hxh -->
-
-<!--
-2020 引入该文件即可显示markdown编辑器
-
-注意：要保持文中有个PHP变量传过来
-
-实现改全改
--->
+<!--Markdown区域结束-->

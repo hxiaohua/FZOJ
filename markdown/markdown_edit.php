@@ -14,7 +14,7 @@
 			css : "../markdown/katex/katex.min"  
 };
         var testEditor = editormd("editor",{
-            width:"90%",
+            width:"100%",
             height : 720,
             path:"../markdown/lib/",//设置文件保存的路径
             saveHTMLToTextarea:true,//增加html代码，取消公式功能
@@ -26,12 +26,4 @@
         })
     });
 </script>
-<!--
-2020 引入该文件即可显示markdown编辑器
-
-注意：要保持文中有个PHP变量传过来
-
-实现一改全改
-
-Powered By hxh 202002 
--->
+<!--统一的Markdown编辑器 202003-->
