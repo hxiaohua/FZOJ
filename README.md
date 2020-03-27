@@ -90,17 +90,24 @@ markdown显示问题，将jumbotron1改名，可能是不兼容bootstrap的某�
 1、在原markdown显示页面，将tex公式注释掉
 
 2、在展示页面的head，加入以下代码：
-'''
+
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+
 <script>
+    
   MathJax = {
+  
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    
   };
   </script> 
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-'''
+  
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+
+</script>
 
 3、其他照常，甚至可以不保存数据到input字段
+
 4、公式显示支持用一个$符号就可以实现效果啦
 
 
