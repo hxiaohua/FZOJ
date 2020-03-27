@@ -15,16 +15,21 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]--> 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+    <script src="markdown/polyfill.min.js?features=es6"></script> 
 <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   };
   </script> 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+.jumbotron1{ 
+    font-size: 18px; 
+}
+</style>
 </head>
 
-<body>
+<body font-size: 100px;>
 <div class="container">
   <?php include("template/$OJ_TEMPLATE/nav.php");?>
   <!-- Main component for a primary marketing message or call to action -->
@@ -61,8 +66,9 @@
     <?php
     }
     echo "</center>";
-    $view_description = $row->description;
-    require_once( "markdown/markdown_view.php" );
+    //$view_description = $row->description;
+      echo $row->input;
+   // require_once( "markdown/markdown_view.php" );
     ?>
     <?php
     echo "<center>";
