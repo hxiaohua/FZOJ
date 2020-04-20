@@ -24,12 +24,12 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <style>
 .jumbotron1{ 
-    font-size: 18px; 
+    font-size: 16px; 
 }
 </style>
 </head>
 
-<body font-size: 100px;>
+<body>
 <div class="container">
   <?php include("template/$OJ_TEMPLATE/nav.php");?>
   <!-- Main component for a primary marketing message or call to action -->
