@@ -110,5 +110,11 @@ markdown显示问题，将jumbotron1改名，可能是不兼容bootstrap的某�
 
 4、公式显示支持用一个$符号就可以实现效果啦
 
+### 标题好看多啦。
+
+参考：https://www.cnblogs.com/36bian/p/5220756.html
+
+修改文件：teamplate/bs3/problem_mk.php
+
 
 
