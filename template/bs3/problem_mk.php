@@ -15,16 +15,28 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]--> 
-    <script src="markdown/polyfill.min.js?features=es6"></script> 
+<script src="markdown/polyfill.min.js?features=es6"></script> 
 <script>
   MathJax = {
     tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   };
   </script> 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <style>
-.jumbotron1{ 
-    font-size: 16px; 
+<style>
+.jumbotron1 {
+    font-size: 16px;
+}
+h3, h4, h5, h6 {
+    background: DodgerBlue !important;
+    border-radius: 6px 6px 6px 6px !important;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-family: "微软雅黑", "宋体", "黑体", Arial;
+    font-weight: bold;
+    line-height: 25px;
+    margin: 15px 0 !important;
+    padding: 5px 0 5px 20px;
+    text-shadow: 2px 2px 3px #222222;
 }
 </style>
 </head>
@@ -67,8 +79,8 @@
     }
     echo "</center>";
     //$view_description = $row->description;
-      echo $row->input;
-   // require_once( "markdown/markdown_view.php" );
+    echo $row->input;
+    // require_once( "markdown/markdown_view.php" );
     ?>
     <?php
     echo "<center>";
