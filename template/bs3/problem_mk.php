@@ -26,18 +26,29 @@
 .jumbotron1 {
     font-size: 16px;
 }
+/**/
 h3, h4, h5, h6 {
+	/*
     background: DodgerBlue !important;
     border-radius: 6px 6px 6px 6px !important;
     box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
-    color: #FFFFFF;
+	*/
+    color: #000000;
     font-family: "微软雅黑", "宋体", "黑体", Arial;
     font-weight: bold;
     line-height: 25px;
     margin: 15px 0 !important;
-    padding: 5px 0 5px 20px;
-    text-shadow: 2px 2px 3px #222222;
+    /*padding: 5px 0 5px 20px;*/
+    /*text-shadow: 2px 2px 3px #222222;*/
 }
+h3{
+	font-size: 1.5em;
+}
+h4{
+	font-size: 1.25em;
+}
+
+
 </style>
 </head>
 

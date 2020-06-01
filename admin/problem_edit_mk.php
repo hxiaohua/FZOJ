@@ -51,7 +51,8 @@ Description:
 <input type="hidden" name="test_input" value=""/>
 <input type="hidden" name="test_output" value=""/>
 <input type="hidden" name="hint" value=""/>
-    <!--不支持老的题目改为Markdown-->
+
+    <!--老的题目改为Markdown 的隐式方法-->
     
 SpecialJudge: 
 N<input type=radio name=spj value='0' <?php echo $row->spj=="0"?"checked":""?>>
@@ -121,7 +122,7 @@ echo "Sample data file in $basedir Updated!<br>";
 	$source=mysqli_real_escape_string($mysqli,$source);
 	$spj=intval($spj);
 	
-$sql="UPDATE `problem` set `title`='$title',`time_limit`='$time_limit',`memory_limit`='$memory_limit',
+$sql="UPDATE `problem` set `title`='$title',`time_limit`='$time_limit',`memory_limit`='$memory_limit',`isMarkdown`='1',
 	`description`='$description',`input`='$input',`output`='$output',`sample_input`='$sample_input',`sample_output`='$sample_output',`hint`='$hint',`source`='$source',`spj`=$spj,`in_date`=NOW()
 	WHERE `problem_id`=$id";
 

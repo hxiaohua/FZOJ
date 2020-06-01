@@ -23,6 +23,7 @@
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL : "../kindeditor/php/upload_mk_json.php",
+			htmlDecode:true, //支持内嵌html代码
         })
     });
 </script>
